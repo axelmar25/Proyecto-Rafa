@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 30px;
+    background-image: url(cina.png);
+}
+  a {
+    text-decoration: none;
+    margin-top: 25px;
+    font-family: cursive;
+    text-align: left;
+    padding: 8px 20px;
+    border: none;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    transition: 0.5s;
+    transition-property: box-shadow;
+  }
+  
+  a {
+    background: rgb(70, 119, 255);
+    box-shadow: 0 0 25px rgb(46, 206, 255);
+  }
+  
+  a:hover {
+    text-align: left;
+    box-shadow: 
+    0 0 5px rgb(46, 206, 255),
+    0 0 25px rgb(46, 206, 255),
+    0 0 50px rgb(46, 206, 255),
+    0 0 100px rgb(46, 206, 255);
+  }
+
+h1 {
+    text-shadow: 4px 4px rgb(25, 0, 255) ;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-width: 1px;
+    color: transparent;
+    font-size: 70px;
+    text-align: center;
+
+}
+h2{
+    margin-top:-45px;
+    font-size: 35px;
+    text-align: center;
+    font-style: oblique;
+    text-shadow:
+    0px 4px 1px rgb(105, 132, 250),
+    4px 4px 5px rgb(105, 132, 250),
+    0px 0px 7px rgb(105, 132, 250);
+}
+main{
+    background: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000000;
+    backdrop-filter: blur(5px);
+    
+}
+.cuestionarioForm input[type="radio"] {
+    visibility: hidden;
+    display: none;
+  }
+  
+  .cuestionarioForm *,
+    .cuestionarioForm ::after,
+    .cuestionarioForm ::before {
+    box-sizing: border-box;
+    user-select: none;
+  }
+  
+  .cuestionarioForm {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+  
+  .cuestionarioForm .label {
+    cursor: pointer;
+  }
+  
+  .cuestionarioForm .check {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .cuestionarioForm .label svg {
+    vertical-align: middle;
+  }
+  
+  .cuestionarioForm .path1 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: .5s stroke-dashoffset;
+    opacity: 0;
+  }
+  
+  .cuestionarioForm .check:checked + label svg g path {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  .shadow__btn {
+    margin-top: 25px;
+    margin-right: 850px;
+    font-family: cursive;
+    text-align: center;
+    padding: 8px 20px;
+    border: none;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    transition: 0.5s;
+    transition-property: box-shadow;
+  }
+  
+  .shadow__btn {
+    background: rgb(70, 119, 255);
+    box-shadow: 0 0 25px rgb(46, 206, 255);
+  }
+  
+  .shadow__btn:hover {
+    text-align: center;
+    box-shadow: 
+    0 0 5px rgb(46, 206, 255),
+    0 0 25px rgb(46, 206, 255),
+    0 0 50px rgb(46, 206, 255),
+    0 0 100px rgb(46, 206, 255);
+  }
+  p{
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  

@@ -1,0 +1,264 @@
+<html>
+<head>
+    <title>Calculadora de Muestras</title>
+    <link rel="stylesheet" href="estilo2.css">
+   
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div>
+        <a href="Proyecto.html">Volver a realizar el cuestionario</a>
+    </div>
+    <div>
+        <h1>Calculadora de Muestras.</h1>
+    <main>
+        <p>Esta es una calculadora con la cual podrás determinar tus cálculos de muestras de población "finita" e 
+            "infinita" por varios métodos como lo son: "Población Infinita", "Método de Slovin" y "Método de Yamane".<br><br>
+            La siguiente tabla está hecha con el fin de facilitar los cálculos y sea más fácil para ti como usuario
+            el uso de esta calculadora, obteniendo de esta misma, el margen de error (e) y nivel de confianza (z) mediante el
+            porcentaje brindado:</p>
+    </div>
+</main>
+
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nivel de confianza (% = 0.00)</th>
+                <th>Margen de Error (e)</th>
+                <th>Nivel de confianza (z)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>90% = 0.9</td>
+                <td>0.1</td>
+                <td>1.6449</td>
+            </tr>
+            <tr>
+                <td>91% = 0.91</td>
+                <td>0.09</td>
+                <td>1.6954</td>
+            </tr>
+            <tr>
+                <td>92% = 0.92</td>
+                <td>0.08</td>
+                <td>1.7507</td>
+            </tr>
+            <tr>
+                <td>93% = 0.93</td>
+                <td>0.07</td>
+                <td>1.8119</td>
+            </tr>
+            <tr>
+                <td>94% = 0.94</td>
+                <td>0.06</td>
+                <td>1.8808</td>
+            </tr>
+            <tr>
+                <td>95% = 0.95</td>
+                <td>0.05</td>
+                <td>1.96</td>
+            </tr>
+            <tr>
+                <td>96% = 0.96</td>
+                <td>0.04</td>
+                <td>2.0537</td>
+            </tr>
+            <tr>
+                <td>97% = 0.97</td>
+                <td>0.03</td>
+                <td>2.1701</td>
+            </tr>
+            <tr>
+                <td>98% = 0.98</td>
+                <td>0.02</td>
+                <td>2.3263</td>
+            </tr>
+            <tr>
+                <td>99% = 0.99</td>
+                <td>0.01</td>
+                <td>2.5758</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <main>
+    <div>
+        <div>
+            <h2>Población Infinita</h2>
+            <div>
+                <p>Cuando la población es muy grande y prácticamente infinita, 
+                    se puede utilizar una aproximación más sencilla para calcular el 
+                    tamaño de muestra. Este método calcula el tamaño de la muestra mediante una 
+                    fórmula que tiene en cuenta el nivel de confianza que existe, el margen de 
+                    error deseado y la probabilidad de que sí y no ocurra el evento.<br><br>
+                    <b>NOTA:</b> Si no tienes el valor de <b>p</b> y <b>q</b>, automáticamente tendrían el valor de 
+                    <b>50% = 0.5</b> cada una.<br><br>
+                    La fórmula para el método de población infinita es:</p>
+                <div id="formulaI"></div>
+                <script>
+                    document.getElementById('formulaI').innerHTML = '\\[ n = \\frac{z^2 * p * q}{e^2} \\]';
+                </script>
+            </div>
+            <p>Donde:</p>
+        </div>
+        <div>
+            <label for="IZ">Nivel de confianza (en decimal) (z):</label>
+            <input type="number" id="IZ" required>
+        </div>
+        <div>
+            <label for="IE">Margen de error (en decimal) (e):</label>
+            <input type="number" id="IE" required>
+        </div>
+        <div>
+            <label for="IP">Probabilidad de que ocurra (en decimal) (p):</label>
+            <input type="number" id="IP" required>
+        </div>
+        <div>
+            <label for="IQ">Probabilidad de que no ocurra (en decimal) (q):</label>
+            <input type="number" id="IQ" required>
+        </div>
+        <script>
+            function calcularPoblacionInfinita() {
+            var E = document.getElementById('IE').value;
+            var P = document.getElementById('IP').value;
+            var Q = document.getElementById('IQ').value;
+            var Z = document.getElementById('IZ').value;
+
+            var muestraI = Math.round((Math.pow(Z , 2) * (P) * (Q)) / (Math.pow(E, 2)));
+            mostrarResultadoI(muestraI);
+            }
+        </script>
+        <div>
+          <br><button onclick="calcularPoblacionInfinita()">Población Infinita</button>
+        </div>
+        <div id="resultadoI"></div>
+        <script>
+            function mostrarResultadoI(muestraI) {
+                var resultadoIDiv = document.getElementById('resultadoI');
+                resultadoIDiv.innerHTML = "<p>Tu resultado es: " + muestraI + "</p>";
+                }
+        </script>
+        </main>
+    </div>
+
+
+    <div>
+        <main>
+        <div>
+            <h2>Método de Slovin</h2>
+        <div>
+            <p>Es una técnica utilizada para determinar el tamaño de la muestra en una 
+                población, especialmente cuando la población es grande y homogénea. Se emplea principalmente en encuestas y estudios de 
+                investigación donde es impráctico o imposible recopilar datos de toda la 
+                población. Este método calcula el tamaño de la muestra mediante una 
+                fórmula que tiene en cuenta la proporción de la población y el margen de 
+                error deseado.<br><br>
+                La fórmula para el método de Slovin es:</p>
+            <div id="formulaS"></div>
+            <script>
+                document.getElementById('formulaS').innerHTML = '\\[ n = \\frac{N}{1 + Ne^2} \\]';
+            </script>
+            </div>
+            <p>Donde:</p>
+        </div>
+        <div>
+            <label for="SN">Tamaño de la población (N):</label>
+            <input type="number" id="SN" required>
+        </div>
+        <div>
+            <label for="SE">Margen de error (en decimal) (e):</label>
+            <input type="number" id="SE" required>
+        </div>
+        <script>
+            function calcularSlovin() {
+            var N = document.getElementById('SN').value;
+            var E = document.getElementById('SE').value;
+
+            
+            var muestraS = Math.round(N / (1 + N * Math.pow(E , 2)));
+            mostrarResultadoS(muestraS);
+            }
+        </script>
+        <div>
+          <br><button onclick="calcularSlovin()">Calcular Slovin</button>
+        </div>
+        <div id="resultadoS"></div>
+        <script>
+            function mostrarResultadoS(muestraS) {
+                var resultadoSDiv = document.getElementById('resultadoS');
+                resultadoSDiv.innerHTML = "<p>Tu resultado es: " + muestraS + "</p>";
+                }
+        </script>
+        </main>
+    </div>
+
+  
+    <div>
+        <main>
+        <div>
+            <h2>Método de Yamane</h2>
+            <div>
+                <p>Es una técnica utilizada para determinar el tamaño de la muestra en 
+                    investigaciones. Se utiliza cuando se conoce el tamaño de la población y 
+                    se desea calcular un tamaño de muestra que sea representativo y adecuado 
+                    para la investigación. Este método calcula el tamaño de la muestra mediante una 
+                    fórmula que tiene en cuenta la proporción de la población, el nivel de confianza que existe, el margen de 
+                    error deseado y la probabilidad de que sí y no ocurra el evento.<br><br>
+                    <b>NOTA:</b> Si no tienes el valor de <b>p</b> y <b>q</b>, automáticamente tendrían el valor de 
+                    <b>50% = 0.5</b> cada una.<br><br>
+                    La fórmula para el método de Yamane es:</p>
+                <div id="formulaY"></div>
+                <script>
+                    document.getElementById('formulaY').innerHTML = '\\[ n = \\frac{N * z^2 * p * q}{e^2 * (N - 1) + z^2 * p * q} \\]';
+                </script>
+            </div>
+            <p>Donde:</p>
+        </div>
+        <div>
+            <label for="YN">Tamaño de la población (N):</label>
+            <input type="number" id="YN" required>
+        </div>
+        <div>
+            <label for="YZ">Nivel de confianza (en decimal) (z):</label>
+            <input type="number" id="YZ" required>
+        </div>
+        <div>
+            <label for="YE">Margen de error (en decimal) (e):</label>
+            <input type="number" id="YE" required>
+        </div>
+        <div>
+            <label for="YP">Probabilidad de que ocurra (en decimal) (p):</label>
+            <input type="number" id="YP" required>
+        </div>
+        <div>
+            <label for="YQ">Probabilidad de que no ocurra (en decimal) (q):</label>
+            <input type="number" id="YQ" required>
+        </div>
+        <script>
+            function calcularYamane() {
+            var N = document.getElementById('YN').value;
+            var E = document.getElementById('YE').value;
+            var P = document.getElementById('YP').value;
+            var Q = document.getElementById('YQ').value;
+            var Z = document.getElementById('YZ').value;
+
+            var muestraY = Math.round((N * Math.pow(Z , 2) * (P) * (Q)) / (Math.pow(E , 2) * (N - 1) + Math.pow(Z , 2) * (P) * (Q)));
+            mostrarResultadoY(muestraY);
+            }
+        </script>
+        <div>
+          <br><button onclick="calcularYamane()">Calcular Yamane</button>
+        </div>
+        <div id="resultadoY"></div>
+        <script>
+            function mostrarResultadoY(muestraY) {
+                var resultadoYDiv = document.getElementById('resultadoY');
+                resultadoYDiv.innerHTML = "<p>Tu resultado es: " + muestraY + "</p>";
+                }
+        </script>
+    </div>
+</main>
+</body>
+</html>
